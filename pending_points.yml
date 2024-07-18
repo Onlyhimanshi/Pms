@@ -1,0 +1,61 @@
+Menu Structure:
+  Dashboard:
+    Overview of all ongoing projects, tasks, and deadlines.
+    Quick access to recently accessed projects and tasks.
+
+  My Team :
+    Show Team list
+    buttons - Add team member , edit , Delete
+    
+  Pipeline Projects:
+    Create New Project
+    View All Projects
+    buttons- View , Edit , Delete , Add task, View team , View Task
+    Show tasks(Task status Pending , progress , done) - kanban view
+  
+  Open Projects:
+    Create New Project
+    View All Projects
+    buttons- View , Edit , Delete , Add task, View team , View Task
+    Show tasks(Task status Pending , progress , done) - kanban view
+      
+  Closed Projects:
+    Create New Project
+    View All Projects
+    buttons- View , Edit , Delete , Add task, View team , View Task
+    Show tasks(Task status Pending , progress , done) - kanban view
+    
+Project Fields:
+  Project title:
+    A clear, concise name that identifies the project.
+  
+  Project Description:
+    A detailed description of the project, including its objectives, scope, and deliverables.
+
+  Start Datetime:
+    The planned start date for the project.
+
+  End Datetime:
+    The planned end date for the project.
+  
+  State:
+    The state of project
+  
+  City :
+    City Of Projet
+
+  Priority:
+    A priority level assigned to the project (e.g., high, medium, low) to indicate its importance or urgency.
+
+  Status:
+    The current status of the project (Open , Closed , Pipeline).
+
+  Team Members:
+    A list of team members assigned to the project, including their roles and responsibilities.
+  
+  delay_count:
+    overall delay of task
+
+gunicorn path:
+  '/home/ubuntu/.local/bin'
+  /home/ubuntu/.local/bin/gunicorn

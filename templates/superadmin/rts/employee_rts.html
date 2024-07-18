@@ -1,0 +1,100 @@
+<table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+    <thead>
+    <tr>
+        <th>Sr No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Company</th>
+        <th>Designation</th>
+        <th>Mobile No</th>
+        <th>Reg Date</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for i in employee_obj %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.first_name}} {{i.last_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.fk_company.company_name}}</td>
+            <td>{{i.fk_designation.designation}}</td>
+            <td>{{i.mobile_number}}</td>
+            <td>{{i.created_date|date:"d-m-Y"}}</td>
+            <td> 
+                {% comment %} <span class="icon-container" style="cursor: pointer;" ><i class="fas fa-eye title-tooltip"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="View"></i></span> &emsp; {% endcomment %}
+                <span class="icon-container" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable{{i.id}}" ><i class="fas fa-edit title-tooltip"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Edit"></i></span> &emsp;
+                <span class="icon-container" style="color: red;cursor: pointer;" onclick="Delete_Employee('{{i.id}}')" ><i class="fas fa-trash title-tooltip"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Delete"></i></span> &emsp;   
+            </td> 
+        </tr>
+
+        {% comment %} start modal  {% endcomment %}
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Scrollable modal -->
+            <div class="modal fade" id="exampleModalScrollable{{i.id}}" data-bs-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalScrollableTitle">Update Employee</h5>
+                            {% comment %} <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> {% endcomment %}
+                        </div>
+                        <div class="modal-body">
+                            {% comment %} Add ur field here {% endcomment %}
+                            <div class="col-md-12 pt-3">
+                                <label for="company">Select Company</label>
+                                <select name="" onclick="Hide_Error(id)" class="form-control" id="company{{i.id}}">
+                                    <option value="">Select Company</option>
+                                    {% for k in company_obj %}
+                                        <option {% if i.fk_company.id == k.id %} selected {% endif %}value="{{k.id}}">{{k.company_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-12 pt-3">
+                                <label for="mobile_number">Select Designation</label>
+                                <select name="" class="form-control" id="designation{{i.id}}">
+                                    <option value="">Select</option>
+                                    {% for k in designation_obj %}
+                                        <option  {% if k.id == i.fk_designation.id %} selected {% endif %}  value="{{k.id}}">{{k.designation}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 pt-3">
+                                <label for="email">First Name</label>
+                                <input class="form-control" value="{{i.first_name}}" onkeyup="Hide_Error(id)" placeholder="Enter first name" type="text"  id="first_name{{i.id}}">
+                            </div>
+
+                            <div class="col-md-12 pt-3">
+                                <label for="email">Last Name</label>
+                                <input class="form-control" value="{{i.last_name}}" onkeyup="Hide_Error(id)" placeholder="Enter last name" type="text" value="" id="last_name{{i.id}}">
+                            </div>
+
+                            <div class="col-md-12 pt-3">
+                                <label for="email">Email Address</label>
+                                <input class="form-control" value="{{i.email}}" onkeyup="Hide_Error(id)" placeholder="Enter email" type="text" value="" id="email{{i.id}}">
+                            </div>
+                            
+
+                            <div class="col-md-12 pt-3">
+                                <label for="mobile_number">Mobile Number</label>
+                                <input class="form-control" value="{{i.mobile_number}}" onkeyup="Hide_Error(id)"  id="mobile_number{{i.id}}" placeholder="Enter mobile no" type="text" pattern="[0-9]{10}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" title="Please enter a 10-digit mobile number" maxlength="10" >
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" onclick="Update_Employee_By_SuperAdmin(this,'{{i.id}}')" class="btn btn-primary">Update</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!-- end card -->
+        </div>
+    </div>
+    {% comment %} end modal  {% endcomment %}
+    {% endfor %}
+    
+    </tbody>
+</table>

@@ -1,0 +1,242 @@
+,Bank,Type
+0,Bank of Baroda,Public Sector Banks (PSBs)
+1,Bank of India,Public Sector Banks (PSBs)
+2,Bank of Maharashtra,Public Sector Banks (PSBs)
+3,Canara Bank,Public Sector Banks (PSBs)
+4,Central Bank of India,Public Sector Banks (PSBs)
+5,Indian Bank,Public Sector Banks (PSBs)
+6,Indian Overseas Bank,Public Sector Banks (PSBs)
+7,Punjab and Sind Bank,Public Sector Banks (PSBs)
+8,Punjab National Bank,Public Sector Banks (PSBs)
+9,State Bank of India,Public Sector Banks (PSBs)
+10,UCO Bank,Public Sector Banks (PSBs)
+11,Union Bank of India,Public Sector Banks (PSBs)
+0,Axis Bank,Private Sector Bank
+1,Bandhan Bank,Private Sector Bank
+2,CSB Bank,Private Sector Bank
+3,City Union Bank,Private Sector Bank
+4,DCB Bank,Private Sector Bank
+5,Dhanlaxmi Bank,Private Sector Bank
+6,Federal Bank,Private Sector Bank
+7,HDFC Bank,Private Sector Bank
+8,ICICI Bank,Private Sector Bank
+9,IDBI Bank,Private Sector Bank
+10,IDFC First Bank,Private Sector Bank
+11,IndusInd Bank,Private Sector Bank
+12,Jammu & Kashmir Bank,Private Sector Bank
+13,Karnataka Bank,Private Sector Bank
+14,Karur Vysya Bank,Private Sector Bank
+15,Kotak Mahindra Bank,Private Sector Bank
+16,Nainital Bank,Private Sector Bank
+17,RBL Bank,Private Sector Bank
+18,South Indian Bank,Private Sector Bank
+19,Tamilnad Mercantile Bank,Private Sector Bank
+20,Yes Bank,Private Sector Bank
+0,Andhra Pradesh Grameena Vikas Bank,Regional Rural Bank
+1,Andhra Pragathi Grameena Bank,Regional Rural Bank
+2,Chaitanya Godavari Gramin Bank[52],Regional Rural Bank
+3,Saptagiri Gramin Bank[53],Regional Rural Bank
+4,Arunachal Pradesh Rural Bank[54],Regional Rural Bank
+5,Assam Gramin Vikash Bank,Regional Rural Bank
+6,Dakshin Bihar Gramin Bank,Regional Rural Bank
+7,Uttar Bihar Gramin Bank,Regional Rural Bank
+8,Chhattisgarh Rajya Gramin Bank[56],Regional Rural Bank
+9,Baroda Gujarat Gramin Bank,Regional Rural Bank
+10,Saurashtra Gramin Bank[59],Regional Rural Bank
+11,Sarva Haryana Gramin Bank[61],Regional Rural Bank
+12,Himachal Pradesh Gramin Bank,Regional Rural Bank
+13,Ellaquai Dehati Bank,Regional Rural Bank
+14,Jammu And Kashmir Grameen Bank,Regional Rural Bank
+15,Jharkhand Rajya Gramin Bank,Regional Rural Bank
+16,Karnataka Gramin Bank,Regional Rural Bank
+17,Karnataka Vikas Grameena Bank,Regional Rural Bank
+18,Kerala Gramin Bank,Regional Rural Bank
+19,Madhya Pradesh Gramin Bank,Regional Rural Bank
+20,Madhyanchal Gramin Bank,Regional Rural Bank
+21,Maharashtra Gramin Bank,Regional Rural Bank
+22,Vidarbha Konkan Gramin Bank[64],Regional Rural Bank
+23,Manipur Rural Bank,Regional Rural Bank
+24,Meghalaya Rural Bank,Regional Rural Bank
+25,Mizoram Rural Bank,Regional Rural Bank
+26,Nagaland Rural Bank,Regional Rural Bank
+27,Odisha Gramya Bank,Regional Rural Bank
+28,Utkal Grameen Bank,Regional Rural Bank
+29,Puduvai Bharathiar Grama Bank,Regional Rural Bank
+30,Punjab Gramin Bank,Regional Rural Bank
+31,Rajasthan Marudhara Gramin Bank,Regional Rural Bank
+32,Baroda Rajasthan Kshetriya Gramin Bank,Regional Rural Bank
+33,Tamil Nadu Grama Bank,Regional Rural Bank
+34,Telangana Grameena Bank,Regional Rural Bank
+35,Tripura Gramin Bank,Regional Rural Bank
+36,Aryavart Bank,Regional Rural Bank
+37,Baroda UP Bank,Regional Rural Bank
+38,Prathama UP Gramin Bank,Regional Rural Bank
+39,Uttarakhand Gramin Bank,Regional Rural Bank
+40,Bangiya Gramin Vikash Bank,Regional Rural Bank
+41,Paschim Banga Gramin Bank,Regional Rural Bank
+42,Uttarbanga Kshetriya Gramin Bank,Regional Rural Bank
+0,AU Small Finance Bank,Small Sector Bank
+1,Capital Small Finance Bank,Small Sector Bank
+2,Equitas Small Finance Bank,Small Sector Bank
+3,ESAF Small Finance Bank,Small Sector Bank
+4,Fincare Small Finance Bank,Small Sector Bank
+5,Jana Small Finance Bank,Small Sector Bank
+6,North East Small Finance Bank,Small Sector Bank
+7,Shivalik Small Finance Bank,Small Sector Bank
+8,Suryoday Small Finance Bank,Small Sector Bank
+9,Ujjivan Small Finance Bank,Small Sector Bank
+10,Unity Small Finance Bank,Small Sector Bank
+11,Utkarsh Small Finance Bank,Small Sector Bank
+0,Jharkhand State Cooperative Bank Ltd.,State Cooperative Bank
+1,The Kerala State Co-operative Bank Ltd.,State Cooperative Bank
+2,The Andaman and Nicobar State Co-operative Bank Ltd.,State Cooperative Bank
+3,The Andhra Pradesh State Co-operative Bank Ltd.,State Cooperative Bank
+4,The Arunachal Pradesh State co-operative Apex Bank Ltd.,State Cooperative Bank
+5,The Assam Co-operative Apex Bank Ltd.,State Cooperative Bank
+6,The Bihar State Co-operative Bank Ltd.,State Cooperative Bank
+7,The Chandigarh State Co-operative Bank Ltd.,State Cooperative Bank
+8,The Chhattisgarh Rajya Sahakari Bank.,State Cooperative Bank
+9,The Chhattisgarh RajyaSahakari Bank Maryadit,State Cooperative Bank
+10,The Delhi State Co-operative Bank Ltd.,State Cooperative Bank
+11,The Goa State Co-operative Bank Ltd.,State Cooperative Bank
+12,The Gujarat State Co-operative Bank Ltd.,State Cooperative Bank
+13,The Haryana State Co-opertive Apex Bank Ltd.,State Cooperative Bank
+14,The Himachal Pradesh State Co-operative Bank Ltd.,State Cooperative Bank
+15,The Jammu and Kashmir State Co-operative Bank Ltd.,State Cooperative Bank
+16,The Karnataka State Co-operative Apex Bank Ltd.,State Cooperative Bank
+17,The Madhya Pradesh Rajya Sahakari Bank Maryadit,State Cooperative Bank
+18,The Maharashtra State Co-operative Bank Ltd.,State Cooperative Bank
+19,The Manipur State Co-operative Bank Ltd.,State Cooperative Bank
+20,The Meghalaya Co-operative Apex Bank Ltd.,State Cooperative Bank
+21,The Mizoram Co-operative Apex Bank Ltd.,State Cooperative Bank
+22,The Nagaland State Co-operative Bank Ltd.,State Cooperative Bank
+23,The Orissa State Co-operative Bank Ltd.,State Cooperative Bank
+24,The Pondichery State Co-opertive Bank Ltd.,State Cooperative Bank
+25,The Punjab State Co-operative Bank Ltd.,State Cooperative Bank
+26,The Rajasthan State Co-operative Bank Ltd.,State Cooperative Bank
+27,The Sikkim State Co-operative Bank Ltd.,State Cooperative Bank
+28,The Tamil Nadu State Apex Co-operative Bank Ltd.,State Cooperative Bank
+29,The Telangana State Cooperative Apex Bank Ltd.,State Cooperative Bank
+30,The Tripura State Co-operative Bank Ltd.,State Cooperative Bank
+31,The Uttar Pradesh Co-operative Bank Ltd.,State Cooperative Bank
+32,The Uttaranchal Rajya Sahakari Bank Ltd.,State Cooperative Bank
+33,The West Bengal State Co-operative Bank Ltd.,State Cooperative Bank
+0,Abhyudaya Co-operative Bank Ltd,Urban Cooperative Bank
+1,Apna Sahakari Bank Ltd,Urban Cooperative Bank
+2,Ahmedabad Mercantile Co-Op Bank Ltd,Urban Cooperative Bank
+3,Amanath Co-operative Bank Ltd,Urban Cooperative Bank
+4,Andhra Pradesh Mahesh Co-Op Urban Bank Ltd,Urban Cooperative Bank
+5,Bassein Catholic Co-operative Bank Ltd,Urban Cooperative Bank
+6,Bharat Co-operative Bank (Mumbai) Ltd,Urban Cooperative Bank
+7,Bharati Sahakari Bank Limited,Urban Cooperative Bank
+8,Bombay Mercantile Co-operative Bank Limited,Urban Cooperative Bank
+9,Buldana Urban Cooperative Credit Society,Urban Cooperative Bank
+10,Charminar Co-operative Urban Bank Ltd,Urban Cooperative Bank
+11,Citizen Credit Co-operative Bank Ltd,Urban Cooperative Bank
+12,Cosmos Co-operative Bank Ltd,Urban Cooperative Bank
+13,Dombivli Nagari Sahakari Bank Ltd,Urban Cooperative Bank
+14,Darrusalam Co-operative Bank Ltd,Urban Cooperative Bank
+15,Goa Urban Co-operative Bank Limited,Urban Cooperative Bank
+16,Gopinath Patil Parsik Janata Sahakari Bank Ltd,Urban Cooperative Bank
+17,Greater Bombay Co-operative Bank Limited,Urban Cooperative Bank
+18,Indian Mercantile Co-operative Bank Ltd,Urban Cooperative Bank
+19,Jalgaon Janata Sahakari Bank Ltd,Urban Cooperative Bank
+20,Janakalyan Sahakari Bank Ltd,Urban Cooperative Bank
+21,Janalaxmi Co-operative Bank Ltd,Urban Cooperative Bank
+22,Janata Sahakari Bank Ltd,Urban Cooperative Bank
+23,Kallappanna Awade Ichalkaranji Janata Sahakari Bank Ltd,Urban Cooperative Bank
+24,Kalupur Commercial Co-Op,Urban Cooperative Bank
+25,Kalyan Janata Sahakari Bank Ltd,Urban Cooperative Bank
+26,Karad Urban Co-operative Bank Ltd,Urban Cooperative Bank
+27,Madhavpura Mercantile Cooperative Bank Ltd,Urban Cooperative Bank
+28,Mahanagar Co-operative Bank Ltd,Urban Cooperative Bank
+29,Mapusa Urban Co-operative Bank of Goa Ltd,Urban Cooperative Bank
+30,Mehsana Urban Co-Op Bank Ltd,Urban Cooperative Bank
+31,Nagar Urban Co-operative Bank Ltd,Urban Cooperative Bank
+32,Nagpur Nagrik Sahakari Bank Ltd,Urban Cooperative Bank
+33,Nasik Merchant's Co-operative Bank Ltd,Urban Cooperative Bank
+34,New India Co-operative Bank Ltd,Urban Cooperative Bank
+35,NKGSB Co-operative Bank Ltd,Urban Cooperative Bank
+36,Nutan Nagarik Sahakari Bank Ltd,Urban Cooperative Bank
+37,Pravara Sahakari Bank Ltd,Urban Cooperative Bank
+38,Punjab and Maharashtra Co-operative Bank Ltd,Urban Cooperative Bank
+39,Rajkot Nagrik Sahakari Bank Ltd,Urban Cooperative Bank
+40,Rohtak Co-Operative Bank Ltd,Urban Cooperative Bank
+41,Rupee Co-operative Bank Ltd,Urban Cooperative Bank
+42,Sangli Urban Co-operative Bank Ltd,Urban Cooperative Bank
+43,Saraswat Co-operative Bank Ltd,Urban Cooperative Bank
+44,Sardar Bhiladwala Pardi Peoples Coop Bank Ltd,Urban Cooperative Bank
+45,Shamrao Vithal Co-operative Bank Ltd,Urban Cooperative Bank
+46,Shikshak Sahakari Bank Ltd,Urban Cooperative Bank
+47,Solapur Janata Sahakari Bank Ltd,Urban Cooperative Bank
+48,The Sonipat Urban Co-operative Bank Ltd,Urban Cooperative Bank
+49,Surat Peoples Coop Bank Ltd,Urban Cooperative Bank
+50,Thane Bharat Sahakari Bank Ltd,Urban Cooperative Bank
+51,Thane Janata Sahakari Bank,Urban Cooperative Bank
+52,The Akola Janata Commercial Co-operative Bank Ltd,Urban Cooperative Bank
+53,The Akola Urban Co-operative Bank Ltd,Urban Cooperative Bank
+54,The Panipat Urban Co-operative Bank Ltd,Urban Cooperative Bank
+55,The Kapol Co-operative Bank Ltd,Urban Cooperative Bank
+56,The Khamgaon Urban Co-operative Bank Ltd,Urban Cooperative Bank
+57,Vasavi Coop Urban Bank Limited,Urban Cooperative Bank
+58,"Vidyasagar cooperative bank limited, midnapore",Urban Cooperative Bank
+59,Zoroastrian Co-operative Bank Ltd,Urban Cooperative Bank
+0,Australia & New Zealand Banking Group,Foreign Bank
+1,Westpac,Foreign Bank
+2,Bank of Bahrain and Kuwait,Foreign Bank
+3,AB Bank,Foreign Bank
+4,Sonali Bank,Foreign Bank
+5,Bank of Nova Scotia,Foreign Bank
+6,Bank of China,Foreign Bank
+7,Industrial & Commercial Bank of China,Foreign Bank
+8,Danske Bank,Foreign Bank
+9,Saxo Bank,Foreign Bank
+10,Barclays,Foreign Bank
+11,HSBC Bank India,Foreign Bank
+12,Standard Chartered Bank,Foreign Bank
+13,BNP Paribas,Foreign Bank
+14,Société Générale,Foreign Bank
+15,Crédit Agricole Corporate and Investment Bank,Foreign Bank
+16,Deutsche Bank,Foreign Bank
+17,Bank Maybank Indonesia,Foreign Bank
+18,Mizuho Corporate Bank,Foreign Bank
+19,MUFG Bank,Foreign Bank
+20,Sumitomo Mitsui Banking Corporation,Foreign Bank
+21,ABN AMRO,Foreign Bank
+22,Rabobank,Foreign Bank
+23,Doha Bank,Foreign Bank
+24,Qatar National Bank,Foreign Bank
+25,Sberbank,Foreign Bank
+26,NatWest Group,Foreign Bank
+27,United Overseas Bank,Foreign Bank
+28,FirstRand Bank,Foreign Bank
+29,Industrial Bank of Korea,Foreign Bank
+30,KEB Hana Bank,Foreign Bank
+31,Kookmin Bank,Foreign Bank
+32,Shinhan Bank,Foreign Bank
+33,Woori Bank,Foreign Bank
+34,Bank of Ceylon,Foreign Bank
+35,Handelsbanken,Foreign Bank
+36,Credit Suisse,Foreign Bank
+37,CTBC Bank,Foreign Bank
+38,Krung Thai Bank,Foreign Bank
+39,Abu Dhabi Commercial Bank,Foreign Bank
+40,Emirates NBD,Foreign Bank
+41,First Abu Dhabi Bank,Foreign Bank
+42,American Express,Foreign Bank
+43,Citibank,Foreign Bank
+44,Bank of America,Foreign Bank
+45,JPMorgan Chase,Foreign Bank
+
+
+bank type:
+Public Sector Banks (PSBs)
+Private Sector Bank
+Regional Rural Bank
+Small Sector Bank
+State Cooperative Bank
+Urban Cooperative Bank
+Foreign Bank
+
+
+

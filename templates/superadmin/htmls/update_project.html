@@ -1,0 +1,239 @@
+{% extends "superadmin/layouts/base.html" %}
+{% load static %}
+{% block title %}{{page_title}}{% endblock %}
+{% block customStyles %}
+<style>
+.select2-container .select2-selection--single {
+   
+    height: 37px !important;
+ 
+}
+
+    .icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-container:hover .title-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+{% endblock customStyles %}
+
+{% block content %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18"></h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Project</a></li>
+                                <li class="breadcrumb-item active">Update project</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Update Project</h4>
+                                <div class="row mb-4">
+                                    <label for="projectname" class="col-form-label col-lg-2">Project Title</label>
+                                    <div class="col-lg-12">
+                                        <input  onkeyup="Hide_Error(id)" id="project_title" value="{{obj.title}}" name="projectname" type="text" class="form-control" placeholder="Enter Project Title...">
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <label for="projectdesc" class="col-form-label col-lg-2">Project Description</label>
+                                    <div class="col-lg-12">
+                                        <textarea class="form-control" onkeyup="Hide_Error(id)"  id="projectdesc" rows="7" placeholder="Enter Project Description...">{{obj.description}}</textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-4">
+                                    <div class="col-lg-3">
+                                        <label class="col-form-label col-lg-3">Priority</label>
+                                        <div class="input-daterange">
+                                            <select class="form-control select2 " id="priority" >
+                                                <option value="">Select Priority</option>
+                                                <option {% if obj.priority == "Low" %} selected {% endif %} value="Low">Low</option>
+                                                <option {% if obj.priority == "Medium" %} selected {% endif %} value="Medium">Medium</option>
+                                                <option {% if obj.priority == "High" %} selected {% endif %} value="High">High</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <label class="col-form-label col-lg-3">Status</label>
+                                        <div class="input-daterange">
+                                            <select class="form-control select2" id="projectstatus" >
+                                                <option value="">Select Status</option>
+                                                <option {% if obj.status == "Pipeline" %} selected {% endif %} value="Pipeline">Pipeline</option>
+                                                <option {% if obj.status == "Open" %} selected {% endif %} value="Open">Open</option>
+                                                <option {% if obj.status == "Closed" %} selected {% endif %} value="Closed">Closed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-form-label">Start Date</label>
+                                        <input type="date" onclick="Hide_Error(id)" id="start_date" class="form-control"  value="{{ obj.start_date|date:'Y-m-d' }}"   placeholder="Start Date" name="start">
+                                    </div> 
+
+                                    <div class="col-lg-3">
+                                        <label class="col-form-label">End Date</label>
+                                        <input type="date" onclick="Hide_Error(id)" id="end_date" class="form-control" value="{{ obj.end_date|date:'Y-m-d' }}" placeholder="End Date" name="end" >
+                                    </div>
+                                
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-lg-4">
+                                        <label class="col-form-label">Country</label>
+                                        <div class="input-daterange">
+                                            <select onchange="Get_State_List()" class="form-control select2" id="country">
+                                                <option value="">Select Country</option>
+                                                {% for i in country_obj %}
+                                                   <option {% if obj.fk_country.id == i.id %} selected {% endif %} value="{{i.id}}">{{i.country}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <label class="col-form-label">State</label>
+                                        <div class="input-daterange">
+                                            <select onchange="Get_City_List()" class="form-control select2" id="state">
+                                                <option value="">Select State</option>
+                                                {% for i in state_obj %}
+                                                   <option {% if obj.fk_state.id == i.id %} selected {% endif %} value="{{i.id}}">{{i.state}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-4">
+                                        <label class="col-form-label">City</label>
+                                        <select id="city" class="select2 form-control select2-multiple select2-hidden-accessible" multiple="" data-placeholder="Select Team Members..." data-select2-id="4" tabindex="-1" aria-hidden="true">
+                                            {% for i in city_list %}
+                                                <option {% if i.id in saved_city_list %} selected {% endif %} value="{{i.id}}" data-select2-id="97">{{i.city}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4">
+
+                                    <div class="col-lg-6">
+                                        <label class="col-form-label col-lg-6">Team Member</label>
+                                        <select id="team_members" class="select2 form-control select2-multiple select2-hidden-accessible" multiple="" data-placeholder="Select Team Members..." data-select2-id="4" tabindex="-1" aria-hidden="true">
+                                            {% for i in user_obj %}
+                                                <option {% if i.id in user_id_list %} selected {% endif %} value="{{i.id}}" data-select2-id="97">{{i.first_name}} {{i.last_name}} ({{i.fk_designation.designation}})</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                     <div class="col-lg-6">
+                                        <label for="projectname" class="col-form-label col-lg-6">Cloud Link(Doccument)</label>
+                                        <input onkeyup="Hide_Error(id)" id="cloud_url" value="{{obj.cloud_url}}" name="projectname" type="text" class="form-control" placeholder="Enter cloud link">
+                                    </div>
+                                </div>
+
+                                
+                                <hr>
+
+                                {% comment %} <div class="row mb-12">
+                                    <div class="col-lg-12 d-flex flex-row-reverse" >
+                                        <button id="closebtn1" class="btn btn-primary" onclick="Add_Fields()" type="button" ><i class="fa fa-plus"> Fields</i></button>
+                                    </div>
+                                </div>
+
+                                <div id="parent_element">
+                                    <div class="row mb-4" id="child_div{{1}}">
+                                        <div class="col-lg-6">
+                                            <label class="col-form-label col-lg-3">File Description</label>
+                                            <input onkeyup="Hide_Error(id)" id="filedesc{{1}}" class="form-control" type="text" placeholder="Please add descripiton " >
+                                        </div>
+
+
+                                        <div class="col-lg-6">
+                                            <label class="col-form-label col-lg-6">Select File</label>
+                                            <div class="input-group">
+                                                <input id="file{{1}}" onclick="Hide_Error(id)" type="file" accept=".pdf, .doc, .docx"  class="form-control"  aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                                <button onclick="Remove_Fields({{1}})" id="closebtn{{1}}" class="btn btn-danger" type="button" ><i class="fa fa-times"></i></button>
+                                            </div>  
+                                            
+                                        </div>
+                                    </div>
+                                </div> {% endcomment %}
+                                {% comment %} add file field here {% endcomment %}
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-3">
+                                        <button type="button" onclick="Update_Project('{{obj.id}}',this)" class="btn btn-primary">Update Project</button>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>document.write(new Date().getFullYear())</script>2024 © Skote.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design &amp; Develop by Themesbrand
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+{% comment %} custome js start {% endcomment %}
+{% block customScripts %}
+   <script type="module" src="{% static 'js/superadmin/projects.js' %}"></script>
+{% endblock customScripts %}
+{% comment %} custome js end {% endcomment %}
+
+{% endblock content %}

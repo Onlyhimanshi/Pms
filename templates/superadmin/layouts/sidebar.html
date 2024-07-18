@@ -1,0 +1,63 @@
+{%load static %}
+<div class="vertical-menu">
+    <div data-simplebar class="h-100">
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+
+                <li>
+                    <a href="{% url 'Dashboard' %}" class="">
+                        <i class="bx bx-home-circle"></i>
+                        <span key="t-dashboards">Dashboards</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="{% url 'Pipeline_Projects' %}" class="">
+                        <i class="bx bx-list-ul"></i>
+                        <span key="t-tables">Pipeline Projects</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'Open_Projects' %}" class="">
+                        <i class="bx bx-list-ul"></i>
+                        <span key="t-tables">Open Projects</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'Closed_Projects' %}" class="">
+                        <i class="bx bx-list-ul"></i>
+                        <span key="t-tables">Closed Projects</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'Company_List' %}" class="">
+                        <i class="bx bx-list-ul"></i>
+                        <span key="t-tables">Company List</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'Designation_List' %}" class="">
+                        <i class="bx bx-list-ul"></i>
+                        <span key="t-tables">Designation List</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'Employee_List' %}" class="">
+                        <i class="bx bx-list-ul"></i>
+                        <span key="t-tables">Employee List</span>
+                    </a>
+                </li>
+            </ul>
+
+            
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>

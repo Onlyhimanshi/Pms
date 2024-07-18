@@ -1,0 +1,162 @@
+{% load static %}
+<header id="page-topbar">
+    <div class="navbar-header">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <a href="index.html" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="{% static 'assets/images/logo.svg' %}" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="{% static 'assets/images/logo-dark.png' %}" alt="" height="17">
+                    </span>
+                </a>
+
+                <a href="#" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="{% static 'assets/images/logo-light.svg' %}" alt="" height="22">
+                    </span>
+                    <span class="logo-lg">
+                        {% comment %} <img src="{% static 'assets/images/logo-light.png' %}" alt="" height="19"> {% endcomment %}
+                        {% comment %} <h3 style="padding-top: 15%;color: white;">Super Admin</h3> {% endcomment %}
+                        <h5 style=" font-size: 15px;padding-top: 15%;color: white; border-radius: 5px; text-align: center; font-family: 'Arial', sans-serif;">Project Management System</h5>
+                    </span> 
+                    <!-- Assuming user_name is the variable containing the user's name -->
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="d-flex">
+
+            <div class="dropdown d-none d-lg-inline-block ms-1">
+                <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                    <i class="bx bx-fullscreen"></i>
+                </button>
+            </div>
+
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user" {% if user.profile_pic %} src="{{user.profile_pic.url}}" {% else %} src="{% static 'assets/images/users/dummy.jpg' %} {% endif %}"
+                        alt="User">
+                    <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{user.first_name}} {{user.last_name}}</span>
+                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#" onclick="Opend_Profile_Modal('{{user.id}}','updateprofile')"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Update Profile</span></a>
+                    <a class="dropdown-item" href="#" onclick="Opend_Profile_Modal('{{user.id}}','changepasswrod')"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Change Password</span></a>
+                    <a class="dropdown-item text-danger" onclick="Logout()" href="#"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+{% comment %} profile modal start {% endcomment %}
+<div class="modal fade" id="updateprofile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">User Profile</h1>
+                <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 50px; box-shadow: 0px 0px 5px 0px gray; width: 20px;height: 20px;"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="row mb-4 row">
+                        <div class="text-center">
+                            <div class="avatar-md" style="margin: auto;" >
+                                <span class="avatar-title rounded-circle bg-light text-danger font-size-18 ">
+                                    <img id="user_image" src="/media/project_files/886693_Y0UWQRc.png" alt="" class="avatar-sm">
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="firstname" class="col-form-label col-lg-12">First Name</label>
+                                <input  onkeyup="Hide_Error(id)" id="firstname" name="firstname" type="text" class="form-control" placeholder="Enter First Name">
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="lastname" class="col-form-label col-lg-12">Last Name</label>
+                                <input  onkeyup="Hide_Error(id)" id="lastname" name="lastname" type="text" class="form-control" placeholder="Enter Last Name">
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                            <label for="mobileno" class="col-form-label col-lg-12">Mobile No</label>
+                            <input  onkeyup="Hide_Error(id)" id="mobileno" name="mobileno" type="text" class="form-control" placeholder="Enter Mobile No">
+                        </div>
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="Update_Profile(this)" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %} profile modal end {% endcomment %}
+
+{% comment %} change pasword start {% endcomment %}
+<div class="modal fade" id="changepasswrod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Password</h1>
+                <button type="button"  class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 50px; box-shadow: 0px 0px 5px 0px gray; width: 20px;height: 20px;"></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="row mb-4 row">
+                        
+                        <div class="col-lg-12">
+                            <label for="current_password" class="col-form-label col-lg-12">Current Password</label>
+                            <div class="input-group">
+                                <input onkeyup="Hide_Error(id)" id="current_password" type="password" class="form-control" placeholder="Enter Current Password">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('current_password')"><i id="toggleIcon_current_password" class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="new_password" class="col-form-label col-lg-12"> New Password</label>
+                            <div class="input-group">
+                                <input onkeyup="Hide_Error(id)" id="new_password" type="password" class="form-control" placeholder="Enter New Password">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('new_password')"><i id="toggleIcon_new_password" class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                            <label for="confirm_password" class="col-form-label col-lg-12">Confirm Password</label>
+                            <div class="input-group">
+                                <input onkeyup="Hide_Error(id)" id="confirm_password" type="password" class="form-control" placeholder="Enter Confirm Password">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirm_password')"><i id="toggleIcon_confirm_password" class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="Change_Password(this)" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %} change password end {% endcomment %}
+{% block customScripts %}
+   <script type="module" src="{% static 'js/user/header.js' %}"></script>
+{% endblock customScripts %}

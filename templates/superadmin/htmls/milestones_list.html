@@ -1,0 +1,330 @@
+{% extends "superadmin/layouts/base.html" %}
+{% load static %}
+{% block title %}{{page_title}}{% endblock %}
+{% block customStyles %}
+<style>
+    .icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-container:hover .title-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+{% endblock customStyles %}
+
+{% block content %}
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Project Milstones list</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#Modal_Add_Milestone" style="margin-bottom: 1%;"  class="btn btn-success btn-rounded waves-effect waves-light "><i class="fas fa-plus"></i> New Milestone</a>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+{% comment %} start add milestone {% endcomment %}
+                            <div class="modal fade" id="Modal_Add_Milestone" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Milestone</h1>
+                                            <button type="button" onclick="Modal_Close_milestone('{{forloop.counter}}')" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 50px; box-shadow: 0px 0px 5px 0px gray; width: 20px;height: 20px;"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card-body">
+                                                
+                                                <div class="col-ls-12">
+                                                    <label for="milestone_title" class="col-form-label col-lg-2">Milestone Title</label>
+                                                    <input  onkeyup="Hide_Error(id)" id="milestone_title" type="text" class="form-control" placeholder="Enter Milestone Title...">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <label for="milestone_head" class="col-form-label col-lg-12">Milestone Head</label>
+
+                                                    <select class="form-control" onclick="Hide_Error(id)" id="milestone_head">
+                                                        <option value="">Select Head</option>
+                                                        {% for i in user_obj %}
+                                                            <option value="{{i.id}}" data-select2-id="97">{{i.first_name}} {{i.last_name}} ({{i.fk_designation.designation}})</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <label class="col-form-label">Start Date</label>
+                                                        <input type="date" onclick="Hide_Error(id)" id="start_date" class="form-control" min="{{ today|date:"Y-m-d" }}"   placeholder="Start Date" name="start">
+                                                    </div> 
+
+                                                    <div class="col-lg-6">
+                                                        <label class="col-form-label">End Date</label>
+                                                        <input type="date" onclick="Hide_Error(id)" id="end_date" class="form-control" min="{{ today|date:"Y-m-d" }}" placeholder="End Date" name="end" >
+                                                    </div>
+                                                </div>    
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" onclick="Add_Milestone(this,{{project_id}})" class="btn btn-primary">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% comment %} end add milestone modal{% endcomment %}
+
+            <div class="row">
+                
+                {% if milstones_obj %}
+                    {% for i in milstones_obj %}
+                        <div class="col-xl-6 col-sm-6">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-5">
+                                            <div class="avatar-md">
+                                                <span class="avatar-title rounded-circle bg-light text-danger font-size-16">
+                                                    <a href="javascript: void(0);"  class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{i.fk_milestone_head.first_name}} {{i.fk_milestone_head.last_name}}"> 
+                                                        <img  {% if i.fk_milestone_head.profile_pic %}  src="{{i.fk_milestone_head.profile_pic.url}}" {% else %} src="{% static 'assets/images/users/dummy.jpg' %}" {% endif %} alt="" class="avatar-sm">
+                                                    </a>
+                                                </span>
+                                            </div>
+                                            <h6 class="mb-sm-0 font-size-18">Milestone Head</h6>
+                                        </div>
+                                            
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-muted mb-4"></p>
+                                            <h5 class="text-truncate font-size-15" style="text-align: center;"><a href="javascript: void(0);" class="text-dark">{{i.milestone_title}}</a></h5>
+                                            <br><br>
+                                            <div class="avatar-group">
+                                                {% if i.users %}
+                                                    {% for k in i.users %}
+                                                        <div class="avatar-group-item">
+                                                            <div style="position: relative;">
+                                                                <!-- User image -->
+                                                                <a href="javascript:void(0);" onclick="Remove_User_From_Milestone('{{k.id}}','{{k.fk_user.first_name}}', '{{k.fk_user.last_name}}')" class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Remove {{ k.fk_user.first_name }} {{ k.fk_user.last_name }}">
+                                                                    <i class="fas fa-times" style="color: red; position: absolute; top: 0; right: 0;"></i>
+
+                                                                    <img {% if k.fk_user.profile_pic %} src="{{k.fk_user.profile_pic.url}}" {% else %}src="{% static 'assets/images/users/dummy.jpg' %}" {% endif %} alt="" class="rounded-circle avatar-xs">
+                                                                </a>
+                                                            </div>
+                                                        </div> 
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <p>No Member</p>
+                                                {% endif %}
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="px-4 py-3 border-top">
+                                    <ul class="list-inline mb-0 d-flex align-items-center justify-content-between">
+                                        
+                                        <li class="list-inline-item me-3">
+                                            <span style="color:#556ee6;">{{i.start_date|date:'d M, Y'}}</span>  <i class="bx bx-right-arrow-alt"></i>  <span style="color:#f46a6a;">{{i.end_date|date:'d M, Y'}}</span> 
+                                        </li>
+                                        
+                                        <li class="list-inline-item me-3">
+                                            <a href="#" style="cursor: pointer;color: red;" onclick="Delete_Milestone({{i.id}})" ><i class="fas fa-trash title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Delete Milestone"></i></a> 
+                                        </li>
+                                        
+                                        <li class="list-inline-item me-3">
+                                            <a href="#" onclick="Open_Update_Milestone('{{forloop.counter}}')" class="" style="cursor: pointer;color: #616975;" ><i class="fas fa-edit title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Update Milestone"></i></a> 
+                                        </li> 
+
+
+                                        <li class="list-inline-item me-3">
+                                            <a href="#"  onclick="Open_Add_milestone_Modal('{{forloop.counter}}')" class="" style="cursor: pointer;color: #f1b44c;"><i class="far fa-plus-square title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add Member In Milestone"></i></a> 
+                                        </li>
+                                        
+                                        
+                                        <li class="list-inline-item me-3">
+                                            <a href="{% url 'Show_Tasks' i.id %}" target="_blank" class="" style="cursor: pointer;color: #5cb85c;" ><i class="fas fa-tasks title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Show Task List"></i></a> 
+                                        </li>
+
+                                    
+                                        {% comment %} <span type="button" class="btn btn-success">
+                                            Delay Days<span class="badge bg-danger ms-1">{{i.delay_days}}</span>
+                                        </span> {% endcomment %}
+                                        <span>Delay Days</span> <span style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);color: red;height: 5%;width: 4%;border-radius: 50%;display: flex;justify-content: center;">{{i.delay_days}}</span>
+
+                                    </ul>
+                                        
+                                </div>
+                            </div>
+                            {% comment %} start add member in milestone {% endcomment %}
+                            <div class="modal fade" id="milestone{{forloop.counter}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-md modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Member In Milestone</h1>
+                                            <button type="button" onclick="Modal_Close_milestone('{{forloop.counter}}')" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 50px; box-shadow: 0px 0px 5px 0px gray; width: 20px;height: 20px;"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card-body">
+                                                <div class="row mb-4 row">
+                                                    <div class="col-lg-12">
+                                                        <label for="tasktitle" class="col-form-label col-lg-12 font-size-15">Milestone Title</label>
+                                                        <h5 class="text-truncate font-size-12" style=""><a href="javascript: void(0);" class="text-dark">{{i.milestone_title}}</a></h5>
+                                                        
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <label for="milestone_member{{forloop.counter}}" class="col-form-label col-lg-12">Add Member</label>
+
+                                                    {% comment %} <select id="milestone_member{{forloop.counter}}" class="select2 form-control"  data-placeholder="Select Team Members..." >
+                                                        {% for i in user_obj %}
+                                                            <option value="{{i.id}}" data-select2-id="97">{{i.first_name}} {{i.last_name}} ({{i.fk_designation.designation}})</option>
+                                                        {% endfor %}
+                                                    </select> {% endcomment %}
+                                                    <select class="form-control" onclick="Hide_Error(id)" id="user{{forloop.counter}}">
+                                                        <option value="">Select Member</option>
+                                                        {% for i in user_obj %}
+                                                            <option value="{{i.id}}" data-select2-id="97">{{i.first_name}} {{i.last_name}} ({{i.fk_designation.designation}})</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" onclick="Add_Milestone_Member(this,'{{forloop.counter}}','{{i.id}}')" class="btn btn-primary">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %} end add member in milestone {% endcomment %}
+
+                            
+                        {% comment %} update milestone start {% endcomment %}
+
+                            <div class="modal fade" id="Modal_Add_Milestone{{forloop.counter}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Milestone</h1>
+                                            <button type="button" onclick="Modal_Close_milestone('{{forloop.counter}}')" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 50px; box-shadow: 0px 0px 5px 0px gray; width: 20px;height: 20px;"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card-body">
+                                                
+                                                <div class="col-ls-12">
+                                                    <label for="milestone_title{{forloop.counter}}" class="col-form-label col-lg-2">Milestone Title</label>
+                                                    <input  onkeyup="Hide_Error(id)" id="milestone_title{{forloop.counter}}" value="{{i.milestone_title}}" type="text" class="form-control" placeholder="Enter Milestone Title...">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <label for="milestone_head" class="col-form-label col-lg-12">Milestone Head</label>
+
+                                                    <select class="form-control" onclick="Hide_Error(id)" id="milestone_head{{forloop.counter}}">
+                                                        <option value="">Select Head</option>
+                                                        {% for k in user_obj %}
+                                                            <option value="{{k.id}}" {% if k.id == i.fk_milestone_head.id %} selected {% endif %} data-select2-id="97">{{k.first_name}} {{k.last_name}} ({{k.fk_designation.designation}})</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <label class="col-form-label">Start Date</label>
+                                                        <input type="date" onclick="Hide_Error(id)" id="start_date{{forloop.counter}}" class="form-control" value="{{i.start_date|date:'Y-m-d'}}" min="{{ today|date:"Y-m-d" }}"   placeholder="Start Date" name="start">
+                                                    </div> 
+
+                                                    <div class="col-lg-6">
+                                                        <label class="col-form-label">End Date</label>
+                                                        <input type="date" onclick="Hide_Error(id)" id="end_date{{forloop.counter}}" value="{{i.end_date|date:'Y-m-d'}}" class="form-control" min="{{ today|date:"Y-m-d" }}" placeholder="End Date" name="end" >
+                                                    </div>
+                                                </div>    
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" onclick="Update_Milestone(this,{{i.id}},{{forloop.counter}})" class="btn btn-primary">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        {% comment %} update milestone end {% endcomment %}
+                        </div>
+                    {% endfor %}
+                    
+                {% else %}
+                    <div class="col-xl-3 col-sm-3"></div>
+                    <div class="col-xl-6 col-sm-6">
+                        <div class="card" style="height: 300%;padding-top: 16%;">
+                            <div class="card-body" >
+                                <div class="d-flex">
+                                    <div class="flex-grow-1 overflow-hidden" style="text-align: center;">
+                                        <h5 class="text-truncate font-size-15">No Project Milstone Available</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-sm-6"></div>
+                {% endif %}
+
+            </div>
+            <!-- end row -->            
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>document.write(new Date().getFullYear())</script>2024 © Skote.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design &amp; Develop by Themesbrand
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+{% comment %} custome js start {% endcomment %}
+{% block customScripts %}
+   <script type="module" src="{% static 'js/superadmin/milestone.js' %}"></script>
+{% endblock customScripts %}
+{% comment %} custome js end {% endcomment %}
+
+{% endblock content %}

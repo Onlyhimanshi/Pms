@@ -1,0 +1,248 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>PMS | {% block title %}{% endblock %}</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'assets/css/bootstrap.min.css' %}"  rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'assets/css/app.min.css' %}"  rel="stylesheet" type="text/css" />
+        
+        <!-- DataTables -->
+        <link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{% static 'assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />     
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+        <link href="{% static 'assets/libs/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/libs/spectrum-colorpicker2/spectrum.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/libs/bootstrap-timepicker/css/bootstrap-timepicker.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/libs/@chenfengyuan/datepicker/datepicker.min.css' %}" rel="stylesheet">
+
+        <!-- Sweet Alert-->
+        <link href="{% static 'assets/libs/sweetalert2/sweetalert2.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- Sweet alert init js-->
+        <script src="assets/js/pages/sweet-alerts.init.js"></script>
+        
+        <!-- toast message js-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+
+        
+        <link href="{% static 'assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet">
+
+        <!-- dropzone css -->
+        <link href="{% static 'assets/libs/dropzone/min/dropzone.min.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- dragula css -->
+        <link href="{% static 'assets/libs/dragula/dragula.min.css' %}" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body data-sidebar="dark" data-layout-mode="light">
+
+    <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            <!-- ========== Left Sidebar and header Start ========== -->
+            
+            {% include 'superadmin/layouts/header.html' %}
+
+            {% block content %}
+            
+            {% endblock content %}
+            {% comment %} task modal start {% endcomment %}
+            <!-- Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Task</h1>
+                            <button type="button" onclick="Modal_Close()" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="border-radius: 50px; box-shadow: 0px 0px 5px 0px gray; width: 20px;height: 20px;"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card-body">
+                                <div class="row mb-4 row">
+                                    <div class="col-lg-12">
+                                        <label for="tasktitle" class="col-form-label col-lg-12">Task Title</label>
+                                        <input  onkeyup="Hide_Error(id)" id="task_title" name="tasktitle" type="text" class="form-control" placeholder="Enter Task Title...">
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <label for="task_desc" class="col-form-label">Task Description</label>
+                                    <div class="col-lg-12">
+                                        <textarea id="taskdesc-editor" name="area"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-4">
+                                    <div class="col-lg-3">
+                                        <label class="col-form-label">Priority</label>
+                                        <select class="form-control" onclick="Hide_Error(id)" name="" id="task_priority">
+                                            <option value="">Select Priority</option>
+                                            <option value="Low">Low</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="High">High</option>
+                                        </select>
+                                    </div> 
+
+                                    <div class=" col-lg-3">
+                                        <label class="col-form-label">Task Member</label>
+                                        <select class="form-control" onclick="Hide_Error(id)" name="" id="fk_task_members">
+                                            <option value="">Select Member</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-form-label">Start Date</label>
+                                        <input type="date" onclick="Hide_Error(id)" id="start_date" class="form-control" min="{{ today|date:"Y-m-d" }}"   placeholder="Start Date" name="start">
+                                    </div> 
+
+                                    <div class="col-lg-3">
+                                        <label class="col-form-label">End Date</label>
+                                        <input type="date" onclick="Hide_Error(id)" id="end_date" class="form-control" min="{{today|date:"Y-m-d" }}" placeholder="End Date" name="end" >
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" onclick="Create_Task(this)" class="btn btn-primary">Create Task</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% comment %} task modal end {% endcomment %}
+            {% include 'superadmin/layouts/sidebar.html' %}
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'assets/libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'assets/libs/node-waves/waves.min.js' %}"></script>
+
+        <!-- apexcharts -->
+        <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+        <!-- Saas dashboard init -->
+        <script src="{% static 'assets/js/pages/saas-dashboard.init.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        
+        
+        <!-- Required datatable js -->
+        <script src="{% static 'assets/libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+        
+        <!-- Buttons examples -->
+        <script src="{% static 'assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+        <script src="{% static 'assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+        <script src="{% static 'assets/libs/jszip/jszip.min.js' %}"></script>
+        <script src="{% static 'assets/libs/pdfmake/build/pdfmake.min.js' %}"></script>
+        <script src="{% static 'assets/libs/pdfmake/build/vfs_fonts.js' %}"></script>
+        <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+        <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+        <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+
+        <!-- Responsive examples -->
+        <script src="{% static 'assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+        <script src="{% static 'assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+        <!-- Datatable init js -->
+        <script src="{% static 'assets/js/pages/datatables.init.js' %}"></script> 
+
+        <!-- form advanced init -->
+        <script src="{% static 'assets/js/pages/form-advanced.init.js' %}"></script>
+        <script src="{% static 'assets/libs/select2/js/select2.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+        <script src="{% static 'assets/libs/spectrum-colorpicker2/spectrum.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
+        <script src="{% static 'assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"></script>
+        <script src="{% static 'assets/libs/@chenfengyuan/datepicker/datepicker.min.js' %}"></script>
+
+        <!--font awesome -->
+
+        <script src="{% static 'assets/js/pages/fontawesome.init.js' %}"></script>
+        <!-- form advanced init -->
+        <!-- Sweet Alerts js -->
+        <script src="{% static 'assets/libs/sweetalert2/sweetalert2.min.js' %}"></script>
+        <script src="{% static 'assets/js/pages/bootstrap-toastr.init.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+
+        <!-- App js -->
+
+                <!-- bootstrap datepicker -->
+        <script src="{% static 'assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+
+        <!-- dropzone plugin -->
+        <script src="{% static 'assets/libs/dropzone/min/dropzone.min.js' %}"></script>
+
+
+        <!-- dragula plugins -->
+        <script src="{% static 'assets/libs/dragula/dragula.min.js' %}"></script>
+
+        <!-- jquery-validation -->
+        <script src="{% static 'assets/libs/jquery-validation/jquery.validate.min.js' %}"></script>
+
+        <script src="{% static 'assets/js/pages/task-kanban.init.js' %}"></script>
+
+        <script src="{% static 'assets/js/pages/task-form.init.js' %}"></script>
+        <script src="{% static 'assets/js/pages/modal.init.js' %}"></script>
+
+        <script src="{% static 'assets/js/pages/task-create.init.js' %}"></script>
+        <script src="{% static 'assets/libs/jquery.repeater/jquery.repeater.min.js' %}"></script>
+        <script src="{% static 'assets/libs/tinymce/tinymce.min.js' %}"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('.select2-multiple').select2();
+                $('.select2').select2();
+
+            });
+        </script>
+        {% block customScripts %}
+    
+        {% endblock customScripts %}
+    </body>
+</html>
+
+
+{% comment %} basic structure {% endcomment %}
+{% comment %} 
+{% extends "superadmin/Layouts/base.html" %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+{% block customStyles %}
+<style>
+        
+</style>
+{% endblock customStyles %}
+
+{% block content %}
+
+{% block customjs %}
+{% endblock customjs %}
+
+{% endblock content %} {% endcomment %}

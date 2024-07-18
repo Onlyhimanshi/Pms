@@ -1,0 +1,193 @@
+{% extends "superadmin/layouts/base.html" %}
+{% load static %}
+{% block title %}{{page_title}}{% endblock %}
+{% block customStyles %}
+<style>
+    .icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-container:hover .title-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+{% endblock customStyles %}
+
+{% block content %}
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Open Projects</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <a href="{% url 'Create_Project' %}" style="margin-bottom: 1%;"  class="btn btn-success btn-rounded waves-effect waves-light "><i class="fas fa-plus"></i> New Project</a>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                {% if project_obj %}
+                    {% for i in project_obj %}
+                        <div class="col-xl-6 col-sm-6">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-4">
+                                            <div class="avatar-md">
+                                                <span class="avatar-title rounded-circle bg-light text-danger font-size-16">
+                                                    {% comment %} <img src="{% static 'assets/images/companies/img-1.png' %}" alt="" height="30"> {% endcomment %}
+                                                    <img  {% if i.project_logo %}  src="{{i.project_logo.url}}" {% else %} src="{% static 'assets/images/companies/img-1.png' %}" {% endif %} alt="" class="avatar-sm">
+                                                </span>
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="flex-grow-1 overflow-hidden">
+                                                <div class="d-flex flex-row-reverse bd-highlight" style="padding-bottom: 5px;">
+                                                    <li class="list-inline-item me-3">
+                                                        <span class="badge bg-warning" >{{i.status}}</span>
+                                                    </li>
+                                                    <li class="list-inline-item me-3 ">
+                                                        <span class="badge bg-success" >{{i.priority}}</span>
+                                                    </li> 
+                                                </div>
+                                            <h5 class="text-truncate font-size-15"><a href="javascript: void(0);" class="text-dark">{{i.title}}</a></h5>
+                                            <p class="text-muted mb-4">{{i.description|truncatewords:40}}</p>
+                                            
+                                            <div class="avatar-group">
+                                                
+                                                {% for j in i.user_id_list %}
+                                                    {% for k in user_list %}
+                                                        {% if k.id == j %}
+                                                        <div class="avatar-group-item">
+                                                            <a href="javascript: void(0);"  class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{k.first_name}} {{k.last_name}}"> {% if k.profile_pic %} <img src="{{k.profile_pic.url}}" alt="" class="rounded-circle avatar-xs"> {% else %}<img src="{% static 'assets/images/users/dummy.jpg' %}" alt="" class="rounded-circle avatar-xs">{% endif %}</a>
+                                                        </div> 
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endfor %}
+                                                
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="px-4 py-3 border-top">
+                                    <ul class="list-inline mb-0 d-flex align-items-center justify-content-between">
+                                        
+                                        <li class="list-inline-item me-3">
+                                            <span style="color:#556ee6;">{{i.start_date|date:'d M, Y'}}</span>  <i class="bx bx-right-arrow-alt"></i>  <span style="color:#f46a6a;">{{i.end_date|date:'d M, Y'}}</span> 
+                                        </li>
+                                        
+                                        <li class="list-inline-item me-3">
+                                            <a href="{% url 'View_Project' i.id  %}" target="_blank" style="cursor: pointer;"  ><i class="fas fa-eye title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="View Project"></i></a> 
+                                        </li>
+
+                                        <li class="list-inline-item me-3">
+                                            <a href="#" style="cursor: pointer;color: red;" onclick="Delete_Project({{i.id}})" ><i class="fas fa-trash title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Delete Project"></i></a> 
+                                        </li>
+                                        <li class="list-inline-item me-3">
+                                            <a href="{% url 'Update_Project' i.id %}" class="" style="cursor: pointer;color: #616975;" ><i class="fas fa-edit title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Edit Project"></i></a> 
+                                        </li>
+
+                                        {% comment %} <li class="list-inline-item me-3">
+                                            <a href="#" onclick="Open_Task_Modal('{{i.id}}')" class="" style="cursor: pointer;color: #f1b44c;"><i class="far fa-plus-square title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Add Task"></i></a> 
+                                        </li> {% endcomment %}
+                                        {% comment %} <li class="list-inline-item me-3">
+                                            <a href="{% url 'Show_Tasks' i.id %}" target="_blank" class="" style="cursor: pointer;color: #5cb85c;" ><i class="fas fa-tasks title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Show Task"></i></a> 
+                                        </li> {% endcomment %}
+                                        
+                                        <li class="list-inline-item me-3">
+                                            <a href="{% url 'Show_Project_Milestones' i.id %}" target="_blank" class="" style="cursor: pointer;color: #5cb85c;" ><i class="fas fa-tasks title-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Show Project Milestones"></i></a> 
+                                        </li>
+
+                                        {% comment %} <span type="button" class="btn btn-success">
+                                            Delay Days<span class="badge bg-danger ms-1">{{i.delay_days}}</span>
+                                        </span> {% endcomment %}
+                                        <span>Delay Days</span> <span style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);color: red;height: 5%;width: 4%;border-radius: 50%;display: flex;justify-content: center;">{{i.delay_days}}</span>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-xl-3 col-sm-3"></div>
+                    <div class="col-xl-6 col-sm-6">
+                        <div class="card" style="height: 300%;padding-top: 16%;">
+                            <div class="card-body" >
+                                <div class="d-flex">
+                                    <div class="flex-grow-1 overflow-hidden" style="text-align: center;">
+                                        <h5 class="text-truncate font-size-15">No Open Projects Available</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-sm-6"></div>
+                {% endif %}
+
+            </div>
+            <!-- end row -->
+
+        
+            
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>document.write(new Date().getFullYear())</script>2024 © Skote.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design &amp; Develop by Themesbrand
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+{% comment %} custome js start {% endcomment %}
+{% block customScripts %}
+   <script type="module" src="{% static 'js/superadmin/projects.js' %}"></script>
+{% endblock customScripts %}
+{% comment %} custome js end {% endcomment %}
+
+{% endblock content %}

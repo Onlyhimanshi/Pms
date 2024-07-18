@@ -1,0 +1,165 @@
+{% extends "superadmin/layouts/base.html" %}
+{% load static %}
+{% block title %}{{page_title}}{% endblock %}
+{% block customStyles %}
+<style>
+    .icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-container:hover .title-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+{% endblock customStyles %}
+
+{% block content %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18"></h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                
+                                {% comment %} <li class="breadcrumb-item"><a href="javascript: void(0);">Pending List</a></li> {% endcomment %}
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            {% comment %} table will come from render to string {% endcomment %}
+                            <div class="text-end">
+                                <button type="button" style="margin-bottom: 1%;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable" class="btn btn-success btn-rounded waves-effect waves-light "><i class="fas fa-plus"></i> New Employee</button>
+                            </div>
+                            <div id="rendered_list">
+                                {{rendered}}
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    {% comment %} start modal  {% endcomment %}
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Scrollable modal -->
+            <div class="modal fade" id="exampleModalScrollable" data-bs-backdrop="static"  tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalScrollableTitle">Add Employee</h5>
+                            {% comment %} <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> {% endcomment %}
+                        </div>
+                        <div class="modal-body">
+                            {% comment %} Add ur field here {% endcomment %}
+                            
+                            <div class="col-md-12 pt-3">
+                                <label for="company">Select Company</label>
+                                <select name="" onclick="Hide_Error(id)" class="form-control" id="company">
+                                    <option value="">Select Company</option>
+                                    {% for i in company_obj %}
+                                        <option value="{{i.id}}">{{i.company_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 pt-3">
+                                <label for="mobile_number">Select Designation</label>
+                                <select name="" onclick="Hide_Error(id)" class="form-control" id="designation">
+                                    <option value="">Select Designation</option>
+                                    {% for i in designation_obj %}
+                                        <option value="{{i.id}}">{{i.designation}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 pt-3">
+                                <label for="email">First Name</label>
+                                <input class="form-control" onkeyup="Hide_Error(id)" placeholder="Enter first name" type="text" value="" id="first_name">
+                            </div>
+
+                            <div class="col-md-12 pt-3">
+                                <label for="email">Last Name</label>
+                                <input class="form-control" onkeyup="Hide_Error(id)" placeholder="Enter last name" type="text" value="" id="last_name">
+                            </div>
+
+                            <div class="col-md-12 pt-3">
+                                <label for="email">Email Address</label>
+                                <input class="form-control" onkeyup="Hide_Error(id)" placeholder="Enter email" type="text" value="" id="email">
+                            </div>
+                            
+
+                            <div class="col-md-12 pt-3">
+                                <label for="mobile_number">Mobile Number</label>
+                                <input class="form-control" onkeyup="Hide_Error(id)"  id="mobile_number" placeholder="Enter mobile no" type="text" pattern="[0-9]{10}" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" title="Please enter a 10-digit mobile number" maxlength="10" >
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" onclick="Add_Employee_By_SuperAdmin(this)" class="btn btn-primary">Add</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            <!-- end card -->
+        </div>
+    </div>
+    {% comment %} end modal  {% endcomment %}
+
+    
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>document.write(new Date().getFullYear())</script> © Skote.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design & Develop by Themesbrand
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+{% comment %} custome js start {% endcomment %}
+{% block customScripts %}
+   <script type="module" src="{% static 'js/superadmin/employee.js' %}"></script>
+{% endblock customScripts %}
+{% comment %} custome js end {% endcomment %}
+
+{% endblock content %}

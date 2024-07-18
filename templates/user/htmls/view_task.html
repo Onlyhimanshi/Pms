@@ -1,0 +1,186 @@
+{% extends "user/layouts/base.html" %}
+{% load static %}
+{% load customFilters %}
+{% block title %}{{page_title}}{% endblock %}
+{% block customStyles %}
+
+<style>
+    .icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.icon-container:hover .title-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+{% endblock customStyles %}
+
+{% block content %}
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">Task Overview</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Task</a></li>
+                                <li class="breadcrumb-item active">View Task</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="d-flex flex-row-reverse">
+                                    <div class="p-2">
+                                        {% if obj.status == 'Pending' %}
+                                            <span class="badge rounded-pill badge-soft-primary font-size-14" id="task-status">{{obj.status}}</span>
+                                        {% elif obj.status == 'Progress' %}
+                                            <span class="badge rounded-pill badge-soft-warning font-size-14" id="task-status">{{obj.status}}</span>
+                                        {% else %}
+                                            <span class="badge rounded-pill badge-soft-success font-size-14" id="task-status">{{obj.status}}</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="p-2">
+                                        <span class="badge rounded-pill badge-soft-primary font-size-14" id="task-status">{{obj.priority}}</span>    
+                                    </div>
+                                    
+                                    
+                                    <div class="p-2">
+                                       </span> <span style="color:#dc3545;color: #dc3545;box-shadow: 0px 0px 6px 0px gray;width: 25px;height: 25px;border-radius: 50px;display: flex;justify-content: center;align-items: center;margin-left: 25%;" class="badge rounded-pill font-size-14" id="task-status">{{obj.delay_days}}</span>    
+                                    </div>
+                                    <div class="p-2">
+                                        <span>Delay Days</span>
+                                    </div>
+                                    <div class="p-2">
+                                        <p class="mb-0" style="color:#dc3545;">{{obj.end_date|date:"d M, Y"}}</p>
+                                    </div>
+
+                                    <div class="p-2">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                    
+                                    <div class="p-2">
+                                        <p class="mb-0" style="color:#007bff;">{{obj.start_date|date:"d M, Y"}}</p>
+                                    </div> 
+
+                                    <div class="p-2">
+                                        <a href="javascript: void(0);"  class="d-inline-block" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{obj.fk_task_member.first_name}} {{obj.fk_task_member.last_name}}"> {% if obj.fk_task_member.profile_pic %} <img src="{{obj.fk_task_member.profile_pic.url}}" alt="" class="rounded-circle avatar-xs"> {% else %}<img src="{% static 'assets/images/users/dummy.jpg' %}" alt="" class="rounded-circle avatar-xs">{% endif %}</a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row d-flex">
+                                    <div class="col-md-8">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <h5 class="text-truncate font-size-15">Task Title</h5>
+                                            <p class="text-muted">{{obj.title}}</p>
+                                        </div>
+                                    </div>
+
+                                    {% comment %} <div class="col-md-4">
+                                        <div class="row task-dates">
+                                            <div class="col-sm-auto col-6">
+                                                <div class="mt-4">
+                                                    <h5 class="font-size-14">Start Date</h5>
+                                                    <p class=" mb-0" style="color:#007bff;">{{obj.start_date|date:"d M, Y"}}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-auto col-6">
+                                                <div class="mt-5">
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </div>
+                                            </div>
+                                            
+
+                                            <div class="col-sm-auto col-6">
+                                                <div class="mt-4">
+                                                    <h5 class="font-size-14">End Date</h5>
+                                                    <p class="mb-0" style="color:#dc3545;">{{obj.end_date|date:"d M, Y"}}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-auto col-6">
+                                                <div class="mt-4">
+                                                    <h5 class="font-size-14"> Delay Days</h5>
+                                                    <p class="mb-0" style="color:#dc3545;color: #dc3545;box-shadow: 0px 0px 6px 0px gray;width: 25px;height: 25px;border-radius: 50px;display: flex;justify-content: center;align-items: center;margin-left: 25%;">{{obj.delay_days}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  {% endcomment %}
+                                </div>
+
+                                <h5 class="font-size-15 mt-4">Task Details :</h5>
+
+                                <p class="text-muted">{{obj.description |safe }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--col end -->
+                <div class="col-md-1"></div>
+                
+            </div>
+        </div> <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+    
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>document.write(new Date().getFullYear())</script>2024 © Skote.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design &amp; Develop by Themesbrand
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+{% comment %} custome js start {% endcomment %}
+{% block customScripts %}
+   <script type="module" src="{% static 'js/superadmin/projects.js' %}"></script>
+{% endblock customScripts %}
+{% comment %} custome js end {% endcomment %}
+
+{% endblock content %}
