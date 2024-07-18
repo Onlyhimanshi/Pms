@@ -1,0 +1,101 @@
+sr,Name,Age,Mobile Number,Income (INR),WhatsApp,Type,State,Marital Status,No. of Children,Education,Family Members,Occupation,Gender,Caste,Religion,NGOs Name,Age_Group,Income_Group,City
+0,Jacqueline Webb,58,9974524834,155789,No,Loan,Rajasthan,Unmarried,3,Primary,8,Vegetable Sellers,Other,OBC,Christian,Pratham,46-60,2-3lakh,Jaipur
+1,Andrew Johnson,25,8748778024,427837,No,Investment,Andhra Pradesh,Divorce,2,Secondary,7,Tailor Work,Female,SC,Hindu,Teach For India,26-35,5-6lakh,Hyderabad
+2,Karen Lopez,19,8955633092,256471,Yes,Loan,Tamil Nadu,Unmarried,1,Primary,6,Agriculture Labour,Female,ST,Hindu,Smile Foundation,26-35,3-4lakh,Chennai
+3,Ethan Anderson,65,8392080953,434993,Yes,Investment,Karnataka,Widow,3,Postgraduate,2,Zardoshi Work,Male,SC,Muslim,Teach For India,46-60,5-6lakh,Bangalore
+4,Andrew Thompson,35,6943239974,366161,Yes,Loan,Rajasthan,Divorce,1,Illiterate,3,Other Homewage Work,Other,SC,Christian,Akshaya Patra Foundation,36-45,4-5lakh,Jaipur
+5,Andrea Johnson,33,8940395823,419275,No,E-commerce,Rajasthan,Divorce,2,Undergraduate,5,Agriculture Labour,Other,GEN,Christian,Smile Foundation,36-45,5-6lakh,Jaipur
+6,Christina Rodriguez,32,7392783743,204286,No,Loan,Tamil Nadu,Married,2,Postgraduate,2,Embroidery,Other,OBC,Muslim,Smile Foundation,36-45,3-4lakh,Chennai
+7,Christopher Jennings,26,9620021413,180131,Yes,Saving,Andhra Pradesh,Divorce,2,Postgraduate,6,Chicken Embroidery,Male,SC,Christian,CRY (Child Rights and You),26-35,2-3lakh,Hyderabad
+8,Christopher Smith,65,9299881676,296038,Yes,Saving,Rajasthan,Widow,2,Illiterate,2,Zardoshi Work,Other,SC,Sikh,Goonj,46-60,3-4lakh,Jaipur
+9,Rebecca Schmidt,24,9332894265,499775,Yes,E-commerce,Maharashtra,Divorce,4,Postgraduate,4,Chicken Embroidery,Other,ST,Christian,Pratham,26-35,5-6lakh,Mumbai 
+10,Bethany Stuart,61,6240251661,184698,Yes,Loan,Andhra Pradesh,Unmarried,2,Secondary,9,Miscellaneous,Female,ST,Christian,Magic Bus India Foundation,46-60,2-3lakh,Hyderabad
+11,Justin Harris,65,6983753977,382789,No,Saving,Andhra Pradesh,Divorce,4,Illiterate,10,Businessman,Female,OBC,Christian,HelpAge India,46-60,4-5lakh,Hyderabad
+12,Lawrence Jefferson,52,9529615275,378058,Yes,Saving,Karnataka,Unmarried,0,Postgraduate,9,Agriculture Labour,Male,OBC,Hindu,Akshaya Patra Foundation,46-60,4-5lakh,Bangalore
+13,Francis Davis,23,6137869475,100299,No,Loan,Rajasthan,Married,4,Undergraduate,6,Vegetable Sellers,Other,GEN,Sikh,Akshaya Patra Foundation,26-35,2-3lakh,Jaipur
+14,Thomas Martinez,55,9457645390,414019,Yes,Investment,Gujarat,Divorce,1,Undergraduate,4,Zardoshi Work,Female,OBC,Christian,HelpAge India,46-60,5-6lakh,Ahmedabad
+15,Mark Baxter,45,7354860540,269951,No,Loan,Kerala,Married,0,Undergraduate,8,Zardoshi Work,Male,ST,Sikh,Oxfam India,46-60,3-4lakh,Kochi
+16,Alicia Barry,20,7722989659,356170,No,Investment,Kerala,Married,1,Graduate,9,Garland Maker,Other,OBC,Sikh,Teach For India,26-35,4-5lakh,Kochi
+17,Paul Walker,19,7149938334,110211,Yes,E-commerce,Kerala,Divorce,3,Illiterate,3,Vegetable Sellers,Male,SC,Sikh,Oxfam India,26-35,2-3lakh,Kochi
+18,Lisa Hill,23,6284277889,158650,Yes,E-commerce,Karnataka,Unmarried,3,Postgraduate,9,Businessman,Other,OBC,Muslim,Oxfam India,26-35,2-3lakh,Bangalore
+19,Ricardo Williams,31,6906164396,290306,No,Saving,Kerala,Divorce,4,Undergraduate,7,Garland Maker,Female,OBC,Christian,CRY (Child Rights and You),36-45,3-4lakh,Kochi
+20,Cynthia French,32,9921889760,261225,Yes,Saving,Tamil Nadu,Unmarried,1,Graduate,8,Other,Other,GEN,Hindu,Goonj,36-45,3-4lakh,Chennai
+21,Ryan Wilson,50,8436019774,225541,Yes,Saving,Uttar Pradesh,Married,3,Postgraduate,7,Agriculture Labour,Other,SC,Hindu,HelpAge India,46-60,3-4lakh,Lucknow
+22,Preston Cooper,56,9763970286,130369,Yes,Investment,Andhra Pradesh,Widow,3,Postgraduate,7,Private Employee,Other,GEN,Hindu,Pratham,46-60,2-3lakh,Hyderabad
+23,Amy Stewart,19,9083418319,226286,Yes,Saving,Gujarat,Divorce,3,Primary,3,Other Homewage Work,Other,ST,Hindu,HelpAge India,26-35,3-4lakh,Ahmedabad
+24,Sara Woods,53,7351531223,397458,Yes,Loan,Uttar Pradesh,Widow,0,Postgraduate,4,Private Employee,Male,OBC,Christian,Pratham,46-60,4-5lakh,Lucknow
+25,Patrick Fleming,30,6913224047,141291,Yes,Investment,Karnataka,Unmarried,0,Below 10th,7,Other,Other,OBC,Hindu,Magic Bus India Foundation,36-45,2-3lakh,Bangalore
+26,Charles Martinez,63,8815087637,144907,No,E-commerce,Andhra Pradesh,Divorce,2,Primary,8,Other Homewage Work,Male,ST,Sikh,Goonj,46-60,2-3lakh,Hyderabad
+27,Cameron Richardson,59,8144181937,483730,No,Investment,Karnataka,Widow,1,Illiterate,9,Student,Other,GEN,Muslim,CRY (Child Rights and You),46-60,5-6lakh,Bangalore
+28,Patrick Perez,62,7699226064,354798,No,Saving,Karnataka,Widow,3,Secondary,6,Garland Maker,Other,SC,Hindu,Save the Children India,46-60,4-5lakh,Bangalore
+29,Jacob Ellis,52,9799685197,136287,Yes,Loan,Tamil Nadu,Divorce,1,Below 10th,8,Miscellaneous,Male,GEN,Sikh,HelpAge India,46-60,2-3lakh,Chennai
+30,Julie Mcmillan,44,9927951973,498774,No,Loan,Maharashtra,Widow,2,Secondary,10,Garland Maker,Female,GEN,Hindu,Save the Children India,46-60,5-6lakh,Mumbai 
+31,Robert Ochoa,32,8761027762,379291,Yes,Saving,Maharashtra,Divorce,4,Graduate,2,Farmer,Female,SC,Christian,HelpAge India,36-45,4-5lakh,Mumbai 
+32,Sharon Mcdonald,46,7970753705,165934,Yes,Loan,Karnataka,Widow,2,Below 10th,9,Vegetable Sellers,Male,OBC,Sikh,HelpAge India,46-60,2-3lakh,Bangalore
+33,Dustin Black,55,6613628803,167314,No,Investment,Kerala,Married,3,Primary,3,Casual Labour,Other,GEN,Christian,Smile Foundation,46-60,2-3lakh,Kochi
+34,Mrs. Dana Jennings MD,35,7137651678,445899,Yes,Investment,Uttar Pradesh,Divorce,4,Secondary,7,Agriculture Labour,Female,ST,Hindu,Goonj,36-45,5-6lakh,Lucknow
+35,Evan Cooley,18,6599707677,349184,No,Saving,Kerala,Married,4,Secondary,6,Zardoshi Work,Other,SC,Sikh,HelpAge India,18-25,4-5lakh,Kochi
+36,John Glover,28,7059257080,388255,No,Loan,Rajasthan,Married,2,Secondary,7,Farmer,Male,OBC,Sikh,Pratham,36-45,4-5lakh,Jaipur
+37,Pamela Hendrix,62,9199703321,186574,No,E-commerce,Karnataka,Widow,3,Postgraduate,3,Agriculture Labour,Male,SC,Sikh,CRY (Child Rights and You),46-60,2-3lakh,Bangalore
+38,Jeffrey Johnson,45,8411057787,238966,No,Investment,Rajasthan,Unmarried,4,Primary,8,Zardoshi Work,Female,ST,Hindu,Akshaya Patra Foundation,46-60,3-4lakh,Jaipur
+39,Kathleen Harrison,39,8314889832,376653,No,Investment,Kerala,Married,2,Secondary,10,Agriculture Labour,Female,SC,Muslim,Save the Children India,46-60,4-5lakh,Kochi
+40,Ronald Garner,35,7128466620,418029,No,Investment,Rajasthan,Married,2,Primary,2,Vegetable Sellers,Other,SC,Muslim,Magic Bus India Foundation,36-45,5-6lakh,Jaipur
+41,Laura Dennis,27,9208399878,321846,Yes,Investment,Karnataka,Married,3,Undergraduate,10,Businessman,Female,GEN,Christian,CRY (Child Rights and You),36-45,4-5lakh,Bangalore
+42,Seth Spears,31,8510777721,211043,Yes,E-commerce,Tamil Nadu,Unmarried,2,Undergraduate,9,Farmer,Male,ST,Muslim,Goonj,36-45,3-4lakh,Chennai
+43,Adam Sweeney,39,7840109255,382746,No,Saving,Maharashtra,Unmarried,2,Below 10th,8,Chicken Embroidery,Male,ST,Hindu,HelpAge India,46-60,4-5lakh,Mumbai 
+44,Alex Hatfield III,24,9856119925,495976,Yes,Investment,Uttar Pradesh,Married,2,Postgraduate,2,Bag maker,Male,ST,Sikh,Goonj,26-35,5-6lakh,Lucknow
+45,Renee Taylor,23,8506254832,482694,Yes,Loan,Rajasthan,Unmarried,1,Undergraduate,5,Chicken Embroidery,Other,SC,Sikh,Teach For India,26-35,5-6lakh,Jaipur
+46,Charlene Charles,42,7715412119,461689,Yes,E-commerce,Karnataka,Unmarried,0,Graduate,10,Farmer,Female,ST,Hindu,HelpAge India,46-60,5-6lakh,Bangalore
+47,Jessica Carlson,24,7554762903,205461,No,Investment,Tamil Nadu,Unmarried,1,Primary,7,Miscellaneous,Other,ST,Sikh,Save the Children India,26-35,3-4lakh,Chennai
+48,Eric Kirk,40,6941975480,473790,Yes,Loan,Kerala,Divorce,2,Secondary,9,Private Employee,Other,ST,Muslim,HelpAge India,46-60,5-6lakh,Kochi
+49,Rachel Underwood,40,6594130308,263429,Yes,Investment,Maharashtra,Married,0,Graduate,9,Private Employee,Female,GEN,Christian,Oxfam India,46-60,3-4lakh,Mumbai 
+50,Danielle Carter,56,8188398760,309186,No,Saving,Karnataka,Unmarried,4,Below 10th,2,Other Homewage Work,Male,ST,Hindu,Goonj,46-60,4-5lakh,Bangalore
+51,Alexis Nelson,34,8119634399,452157,Yes,E-commerce,Uttar Pradesh,Divorce,1,Graduate,5,Domestic Worker,Female,SC,Sikh,HelpAge India,36-45,5-6lakh,Lucknow
+52,Martha Wright,20,6390452952,440723,Yes,Saving,Kerala,Widow,1,Below 10th,6,Bag maker,Female,GEN,Hindu,Smile Foundation,26-35,5-6lakh,Kochi
+53,Kaylee Newton,64,9246059658,295779,Yes,E-commerce,Tamil Nadu,Widow,1,Illiterate,10,Student,Female,ST,Muslim,CRY (Child Rights and You),46-60,3-4lakh,Chennai
+54,Hannah Lopez,47,6202363285,329690,Yes,Investment,Kerala,Unmarried,3,Undergraduate,4,Businessman,Other,ST,Sikh,Teach For India,46-60,4-5lakh,Kochi
+55,Barbara Ramirez,52,9698408854,371358,Yes,Investment,Gujarat,Married,2,Primary,6,Agriculture Labour,Female,GEN,Sikh,CRY (Child Rights and You),46-60,4-5lakh,Ahmedabad
+56,Holly White,25,6470939445,336708,Yes,E-commerce,Kerala,Unmarried,4,Below 10th,9,Businessman,Male,ST,Sikh,Akshaya Patra Foundation,26-35,4-5lakh,Kochi
+57,Ashley Ball,42,6656448479,163441,Yes,Loan,Rajasthan,Widow,4,Secondary,9,Bag maker,Female,SC,Sikh,Goonj,46-60,2-3lakh,Jaipur
+58,Andrew Franco,23,8694860228,229973,No,Loan,Kerala,Married,4,Graduate,3,Tailor Work,Male,SC,Hindu,Oxfam India,26-35,3-4lakh,Kochi
+59,Sheryl Mueller,53,6687117441,217806,Yes,Investment,Tamil Nadu,Married,2,Illiterate,2,Tailor Work,Male,ST,Muslim,Goonj,46-60,3-4lakh,Chennai
+60,Kelly Lopez,36,9401954956,133568,Yes,Investment,Kerala,Widow,0,Illiterate,5,Miscellaneous,Male,SC,Muslim,Oxfam India,36-45,2-3lakh,Kochi
+61,Theresa Todd,58,8922644564,277254,Yes,Saving,Kerala,Divorce,1,Below 10th,4,Garland Maker,Other,GEN,Christian,Oxfam India,46-60,3-4lakh,Kochi
+62,Louis Castro,57,7813163240,111028,Yes,Investment,Andhra Pradesh,Divorce,2,Postgraduate,6,Chicken Embroidery,Other,ST,Hindu,Teach For India,46-60,2-3lakh,Hyderabad
+63,Crystal Moore,41,8561557300,408443,No,E-commerce,Karnataka,Unmarried,1,Below 10th,10,Other,Other,GEN,Muslim,CRY (Child Rights and You),46-60,5-6lakh,Bangalore
+64,Cameron Becker,54,6272849424,390414,No,Loan,Andhra Pradesh,Married,2,Illiterate,2,Miscellaneous,Female,SC,Hindu,CRY (Child Rights and You),46-60,4-5lakh,Hyderabad
+65,Aaron Jones,30,7652563013,220646,No,Loan,Kerala,Unmarried,1,Secondary,10,Domestic Worker,Other,ST,Hindu,Akshaya Patra Foundation,36-45,3-4lakh,Kochi
+66,John Johnson,63,7639042338,408512,Yes,Saving,Karnataka,Married,2,Undergraduate,8,Domestic Worker,Female,GEN,Muslim,Teach For India,46-60,5-6lakh,Bangalore
+67,Wanda Carlson,22,8559321289,215457,No,Loan,Andhra Pradesh,Widow,0,Primary,3,Domestic Worker,Male,SC,Christian,Goonj,26-35,3-4lakh,Hyderabad
+68,Ashley Hodges,20,8010258946,103770,Yes,Loan,Kerala,Married,4,Postgraduate,5,Farmer,Female,ST,Christian,Akshaya Patra Foundation,26-35,2-3lakh,Kochi
+69,Sara Garcia,60,8272528809,137220,No,E-commerce,Uttar Pradesh,Married,1,Secondary,3,Zardoshi Work,Male,OBC,Christian,Smile Foundation,46-60,2-3lakh,Lucknow
+70,Denise Cook,32,7079815404,471112,No,Loan,Andhra Pradesh,Widow,2,Below 10th,9,Chicken Embroidery,Female,SC,Sikh,Teach For India,36-45,5-6lakh,Hyderabad
+71,Adam Miller DVM,36,8376087131,430879,Yes,Saving,Karnataka,Divorce,0,Secondary,3,Vegetable Sellers,Other,SC,Muslim,Akshaya Patra Foundation,36-45,5-6lakh,Bangalore
+72,Dr. Bryan Allison,23,9697020653,130866,No,Saving,Andhra Pradesh,Widow,0,Graduate,4,Garland Maker,Male,OBC,Sikh,Save the Children India,26-35,2-3lakh,Hyderabad
+73,Sheri Mejia,32,6049310608,220031,No,Loan,Gujarat,Married,4,Illiterate,9,Chicken Embroidery,Female,OBC,Sikh,Akshaya Patra Foundation,36-45,3-4lakh,Ahmedabad
+74,Jennifer Chambers,24,8921794983,135337,No,Investment,Gujarat,Widow,2,Secondary,6,Other Homewage Work,Female,GEN,Sikh,Goonj,26-35,2-3lakh,Ahmedabad
+75,Todd Blankenship,42,9095476665,116469,Yes,Loan,Uttar Pradesh,Married,1,Primary,10,Casual Labour,Other,SC,Hindu,Akshaya Patra Foundation,46-60,2-3lakh,Lucknow
+76,Valerie Wilson,35,6491995979,273239,Yes,Saving,Tamil Nadu,Divorce,3,Primary,6,Other Homewage Work,Other,OBC,Hindu,Magic Bus India Foundation,36-45,3-4lakh,Chennai
+77,Justin Richardson,47,8927923735,137149,No,Saving,Tamil Nadu,Divorce,0,Secondary,8,Casual Labour,Other,ST,Muslim,Magic Bus India Foundation,46-60,2-3lakh,Chennai
+78,Yolanda Jones,58,9800137469,369565,Yes,E-commerce,Karnataka,Married,0,Illiterate,9,Student,Female,SC,Muslim,Save the Children India,46-60,4-5lakh,Bangalore
+79,Zachary Barrett,41,8306270004,224782,Yes,Loan,Rajasthan,Divorce,4,Graduate,9,Other Homewage Work,Other,GEN,Hindu,Save the Children India,46-60,3-4lakh,Jaipur
+80,Julia Gomez,28,9224995600,246002,Yes,Loan,Tamil Nadu,Widow,2,Postgraduate,5,Bag maker,Female,OBC,Hindu,Magic Bus India Foundation,36-45,3-4lakh,Chennai
+81,Larry Powell,41,7146005448,450737,No,E-commerce,Karnataka,Divorce,3,Below 10th,9,Domestic Worker,Other,SC,Sikh,Save the Children India,46-60,5-6lakh,Bangalore
+82,Arthur Meyer,40,9301106403,354496,Yes,Saving,Uttar Pradesh,Unmarried,3,Illiterate,10,Farmer,Female,SC,Christian,Save the Children India,46-60,4-5lakh,Lucknow
+83,Eric Martinez,31,8752909971,212321,No,E-commerce,Rajasthan,Divorce,3,Postgraduate,4,Other Homewage Work,Male,OBC,Christian,CRY (Child Rights and You),36-45,3-4lakh,Jaipur
+84,Jonathan Green,60,7461042543,382713,Yes,Investment,Rajasthan,Unmarried,2,Graduate,8,Tailor Work,Other,OBC,Christian,CRY (Child Rights and You),46-60,4-5lakh,Jaipur
+85,Alexandra Stevens,35,6479112937,169369,Yes,Loan,Gujarat,Widow,1,Undergraduate,5,Bag maker,Male,OBC,Christian,Akshaya Patra Foundation,36-45,2-3lakh,Ahmedabad
+86,Steven Olson,62,7260573448,479245,No,Saving,Kerala,Divorce,0,Primary,10,Miscellaneous,Female,SC,Christian,Magic Bus India Foundation,46-60,5-6lakh,Kochi
+87,Kevin Taylor,61,7867302554,399391,No,E-commerce,Rajasthan,Divorce,2,Undergraduate,4,Casual Labour,Male,OBC,Sikh,Goonj,46-60,4-5lakh,Jaipur
+88,Darrell Faulkner,59,6679282378,402100,Yes,Saving,Maharashtra,Divorce,3,Below 10th,3,Other Homewage Work,Other,OBC,Muslim,Magic Bus India Foundation,46-60,5-6lakh,Mumbai 
+89,Kyle Rice,22,7948728483,347815,No,Investment,Karnataka,Widow,0,Graduate,6,Bag maker,Other,SC,Hindu,Magic Bus India Foundation,26-35,4-5lakh,Bangalore
+90,Karen Griffith,56,6013938521,227400,No,Loan,Rajasthan,Widow,0,Below 10th,8,Embroidery,Female,SC,Sikh,Smile Foundation,46-60,3-4lakh,Jaipur
+91,Thomas Miller,58,9101361778,347974,Yes,E-commerce,Rajasthan,Unmarried,3,Undergraduate,7,Zardoshi Work,Other,GEN,Christian,Smile Foundation,46-60,4-5lakh,Jaipur
+92,Joshua Reynolds,28,9761759725,313416,No,Saving,Maharashtra,Married,3,Graduate,10,Vegetable Sellers,Male,ST,Hindu,Save the Children India,36-45,4-5lakh,Mumbai 
+93,Erin Anderson,52,9091004939,199829,Yes,Loan,Rajasthan,Widow,0,Postgraduate,6,Private Employee,Other,SC,Sikh,Pratham,46-60,2-3lakh,Jaipur
+94,Teresa Vasquez,64,7131247330,149453,Yes,Loan,Kerala,Divorce,4,Postgraduate,2,Chicken Embroidery,Male,ST,Christian,CRY (Child Rights and You),46-60,2-3lakh,Kochi
+95,Rhonda Davis,33,8150000991,150819,No,Saving,Maharashtra,Unmarried,0,Undergraduate,6,Zardoshi Work,Other,GEN,Sikh,Oxfam India,36-45,2-3lakh,Mumbai 
+96,Valerie Fleming,28,9272602734,445496,Yes,Loan,Gujarat,Divorce,1,Undergraduate,6,Tailor Work,Female,GEN,Hindu,Goonj,36-45,5-6lakh,Ahmedabad
+97,Kenneth Mendez,47,6767303988,325994,Yes,Loan,Andhra Pradesh,Divorce,1,Primary,9,Bag maker,Other,OBC,Muslim,Smile Foundation,46-60,4-5lakh,Hyderabad
+98,Alexander Hill,42,8180476188,285753,Yes,E-commerce,Rajasthan,Widow,4,Postgraduate,4,Bag maker,Female,GEN,Christian,Magic Bus India Foundation,46-60,3-4lakh,Jaipur
+99,Felicia Miller,35,9919706735,322077,No,Loan,Rajasthan,Married,2,Primary,9,Student,Other,OBC,Hindu,Magic Bus India Foundation,36-45,4-5lakh,Jaipur
